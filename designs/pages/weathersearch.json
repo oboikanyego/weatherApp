@@ -1,0 +1,662 @@
+[
+    {
+        "id": "sd_ZaT1AR9df990elDt",
+        "type": "tab",
+        "createdDate": "2022-06-02T10:14:51.553Z",
+        "label": "weathersearch",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_ndVujko1ysqPBK7K",
+        "type": "OnInit",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_ndVujko1ysqPBK7K",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_QcfXY9LNTyVrW465"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_QcfXY9LNTyVrW465",
+        "type": "PageVariables",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "searchString",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_QcfXY9LNTyVrW465",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_5hFPNsXOqJh3mXn5",
+        "type": "PageStart",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "updateLog",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "logobject",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "updateLog",
+        "category": "General",
+        "x": 45,
+        "y": 140,
+        "wires": [
+            [
+                "sd_P3RwUF0TcpI6l66g"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_P3RwUF0TcpI6l66g",
+        "type": "Script",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.logArray.push(bh.input.logobject);",
+        "functionName": "sd_P3RwUF0TcpI6l66g",
+        "category": "Function",
+        "x": 165,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_nQkDWZdlhSm3QwVk",
+        "type": "PageStart",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "processWeather",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "cityName",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "processWeather",
+        "category": "General",
+        "x": 45,
+        "y": 240,
+        "wires": [
+            [
+                "sd_n9dao3mJSgNzQEAa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_n9dao3mJSgNzQEAa",
+        "type": "Script",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.showCard = (typeof this.page.weatherdata === 'object' && Object.keys(this.page.weatherdata).length > 2);",
+        "functionName": "sd_n9dao3mJSgNzQEAa",
+        "category": "Function",
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "sd_SmhoxhZTzXhDZosj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_SmhoxhZTzXhDZosj",
+        "type": "PageSwitch",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "showCard",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.showCard",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_SmhoxhZTzXhDZosj",
+        "category": "Function",
+        "x": 265,
+        "y": 240,
+        "wires": [
+            [
+                "sd_bksPt1q1u5txLWHS"
+            ],
+            [
+                "sd_4M14zFbkALnzlQHf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_4M14zFbkALnzlQHf",
+        "type": "Script",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "localStorage.lastCity = bh.input.cityName;\nbh.input.successlog = {type: 'info', message: 'Successfully Retrieved the Weather Data for city: ' + bh.input.cityName}",
+        "functionName": "sd_4M14zFbkALnzlQHf",
+        "category": "Function",
+        "x": 405,
+        "y": 300,
+        "wires": [
+            [
+                "sd_LdYvuVRUzulnSLx3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LdYvuVRUzulnSLx3",
+        "type": "PageCallService",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "success log",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZaT1AR9df990elDt",
+            "type": "tab",
+            "createdDate": "2022-06-02T10:14:51.553Z",
+            "label": "weathersearch",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_5hFPNsXOqJh3mXn5",
+            "flowName": "updateLog"
+        },
+        "inputVariables": [
+            {
+                "key": "logobject",
+                "map": true,
+                "valueType": "bh",
+                "value": "bh.input.successlog"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./weathersearch",
+        "startName": "updateLog",
+        "inputParams": [
+            "bh.bh.input.successlog"
+        ],
+        "accept_csd": false,
+        "functionName": "successLog",
+        "category": "General",
+        "x": 545,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nLRsWAqAbBSsXDD5",
+        "type": "Catch",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_n9dao3mJSgNzQEAa"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_nLRsWAqAbBSsXDD5",
+        "category": "General",
+        "x": 325,
+        "y": 120,
+        "wires": [
+            [
+                "sd_lhzyyyLlFoJBi2a8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_lhzyyyLlFoJBi2a8",
+        "type": "Script",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.errorlog = { type: 'error', message: `Weather Data Not Found${bh.input.cityName ? ` For the City: ${bh.input.cityName}` : ''}!` }",
+        "functionName": "sd_lhzyyyLlFoJBi2a8",
+        "category": "Function",
+        "x": 425,
+        "y": 120,
+        "wires": [
+            [
+                "sd_bksPt1q1u5txLWHS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bksPt1q1u5txLWHS",
+        "type": "PageCallService",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Error log",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZaT1AR9df990elDt",
+            "type": "tab",
+            "createdDate": "2022-06-02T10:14:51.553Z",
+            "label": "weathersearch",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_5hFPNsXOqJh3mXn5",
+            "flowName": "updateLog"
+        },
+        "inputVariables": [
+            {
+                "key": "logobject",
+                "map": true,
+                "valueType": "bh",
+                "value": "bh.input.errorlog"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./weathersearch",
+        "startName": "updateLog",
+        "inputParams": [
+            "bh.bh.input.errorlog"
+        ],
+        "accept_csd": false,
+        "functionName": "errorLog",
+        "category": "General",
+        "x": 545,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_s1vNeWU8rO48HdeE",
+        "type": "PageStart",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get Weather",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "cityName",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "ssdWeatherApiUrl",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "getWeather",
+        "category": "General",
+        "x": 65,
+        "y": 440,
+        "wires": [
+            [
+                "sd_qmQ2REdG7ZttlzOl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "weathersearchComponent"
+    },
+    {
+        "id": "sd_qmQ2REdG7ZttlzOl",
+        "type": "PageSwitch",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "cityNameNullCheck",
+        "property": "cityName",
+        "propertyType": "bh.input",
+        "propertyGv": "bh.input.cityName",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "\"undefined\"",
+                "vt": "\"undefined\"",
+                "gv": "\"undefined\""
+            },
+            {
+                "t": "null"
+            },
+            {
+                "t": "empty"
+            },
+            {
+                "t": "istype",
+                "v": "\"string\"",
+                "vt": "\"string\"",
+                "gv": "\"string\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "functionName": "cityNameNullCheck",
+        "category": "Function",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "sd_fw1KGkq1mgZfkN9d"
+            ],
+            [
+                "sd_fw1KGkq1mgZfkN9d"
+            ],
+            [
+                "sd_fw1KGkq1mgZfkN9d"
+            ],
+            [
+                "sd_xnCGQcnTn5pOzvio"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fw1KGkq1mgZfkN9d",
+        "type": "SnackBar",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Invalid City Name"
+        },
+        "action": {
+            "type": "str",
+            "value": "Okay"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_fw1KGkq1mgZfkN9d",
+        "category": "General",
+        "x": 305,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_xnCGQcnTn5pOzvio",
+        "type": "Script",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "construct api url",
+        "script": "bh.local.ssdWeatherApiUrl = `${bh.system.environment.properties.ssdURL}weather`;\nbh.local.qparams = {\n    cityName: bh.input.cityName\n}",
+        "functionName": "constructApiUrl",
+        "category": "Function",
+        "x": 305,
+        "y": 440,
+        "wires": [
+            [
+                "sd_rkDcaYUMUy8RVewQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_rkDcaYUMUy8RVewQ",
+        "type": "HttpRequest",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "call server flow",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.ssdWeatherApiUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "ssdWeatherApiUrl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.weatherdata",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "weatherdata"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {
+            "bh.local.": "qparams"
+        },
+        "paramsObj": [
+            {
+                "key": "bh.local.",
+                "defaultValue": "qparams"
+            }
+        ],
+        "paramMappingObj": {},
+        "functionName": "callServerFlow",
+        "category": "HTTP",
+        "x": 425,
+        "y": 400,
+        "wires": [
+            [
+                "sd_JmajBappTpelM7tJ",
+                "sd_xHb44hUJUrk80QGu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JmajBappTpelM7tJ",
+        "type": "Log",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "bh.local.ssdWeatherApiUrl",
+        "functionName": "sd_JmajBappTpelM7tJ",
+        "category": "General",
+        "x": 525,
+        "y": 400,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "bh.local",
+                "value": "ssdWeatherApiUrl",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_xHb44hUJUrk80QGu",
+        "type": "PageCallService",
+        "z": "sd_ZaT1AR9df990elDt",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "callProcessWeather",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZaT1AR9df990elDt",
+            "type": "tab",
+            "createdDate": "2022-06-02T10:14:51.553Z",
+            "label": "weathersearch",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nQkDWZdlhSm3QwVk",
+            "flowName": "processWeather"
+        },
+        "inputVariables": [
+            {
+                "key": "cityName",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "cityName"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./weathersearch",
+        "startName": "processWeather",
+        "inputParams": [
+            "bh.input.cityName"
+        ],
+        "accept_csd": false,
+        "functionName": "callProcessWeather",
+        "category": "General",
+        "x": 545,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]
